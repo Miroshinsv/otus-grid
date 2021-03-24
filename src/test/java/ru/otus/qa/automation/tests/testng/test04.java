@@ -1,32 +1,31 @@
-package ru.otus.qa.automation.tests.junit;
+package ru.otus.qa.automation.tests.testng;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import ru.otus.qa.automation.logic.pages.MainPage;
 
 import static ru.otus.qa.automation.logic.WebDriverInit.initDriver;
 
-public class Test01 {
+public class test04 {
     private WebDriver driver;
     private MainPage mainPage;
 
-    @Before
-    public void setUp() {
+    @BeforeMethod
+    void setUp(){
         driver = initDriver();
         mainPage = new MainPage(driver);
         driver.get("https://otus.ru");
     }
 
-    @After
-    public void tearDown(){
+    @AfterMethod
+    void tearDown(){
         driver.close();
     }
 
     @Test
-    public void Test01ClickRecuterButton(){
+    void test01(){
         mainPage
                 .clickRecrutersButton();
     }
